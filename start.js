@@ -1,9 +1,11 @@
 const admin = require("firebase-admin");
+const path = require("path");
 
 // Verifikasi token
 (async () => {
   try {
-    const serviceAccount = require("./database/database.js");
+    
+const serviceAccount = require(path.join(process.cwd(), "database", "database.js"));
 
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
